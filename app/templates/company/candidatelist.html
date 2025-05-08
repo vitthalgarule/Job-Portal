@@ -1,0 +1,65 @@
+{% extends "company/base2.html" %}
+{% block content %}
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Apply Candidate LIST</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'companyindex' %}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Apply Candidate list</li>
+                        </ol>
+                        <div class="card mb-4">
+                            
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                candidate list
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Candidate Name</th>
+                                            <th>Emial</th>
+                                            <th>Qulification</th>
+                                            <th>Contact</th>
+                                            <th>Address</th>
+                                            <th>Resum</th>
+                                            <th>Job id</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Candidate Name</th>
+                                            <th>Emial</th>
+                                            <th>Qulification</th>
+                                            <th>Contact</th>
+                                            <th>Address</th>
+                                            <th>Resum</th>
+                                            <th>Job id</th>
+                                        </tr>
+                                    </tfoot>
+                                    {% if allcan %}
+                                    <tbody>
+                                        {% for i in allcan %}
+                                        <tr>
+                                            <td>{{i.name}}</td>
+                                            <td>{{i.email}}</td>
+                                            <td>{{i.Qulification}}</td>
+                                            <td>{{i.contact}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.resume}}</td>
+                                            <td>{{i.jobid_id}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+               
+{% endblock %}

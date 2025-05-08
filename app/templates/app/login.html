@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job portal</title>
+</head>
+<body>
+    <h1>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Login Page</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                .login-container {
+                    background-color: #fff;
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    width: 300px;
+                }
+                .login-container h2 {
+                    text-align: center;
+                }
+                .login-container input[type="text"],
+                .login-container input[type="password"],
+                .login-container input[type="submit"] {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+                .login-container input[type="submit"] {
+                    background-color: #350857;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="login-container">
+                <h2>Login</h2>
+                 <form action="{% url 'LoginPage' %}" method="POST">
+                     {% csrf_token %}
+                     {% if msg %}
+                        <h3 style="color: red;">{{msg}}</h3>
+                     {% endif %}
+                    <select name="role" id="s2">
+                        <option value="">select who are you</option>
+                        <option value="candidate">candidate</option>
+                        <option value="company">company</option>
+                    </select><br>
+                   
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="email" required>
+        
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+        
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </body>
+        </html>
+        
+    </h1>
+</body>
+</html>

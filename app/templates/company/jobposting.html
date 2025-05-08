@@ -1,0 +1,154 @@
+{% extends "company/base2.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Update Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        from{
+            margin-left:40%;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            width: 48%;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-group input[type="text"]:hover,
+        .form-group input[type="date"]:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #007bff;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 40%;
+        }
+
+        .form-group button:hover {
+            background-color: #00b30cc1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Profile Update Form</h2>
+    <h2>{{msg}}</h2>
+    <form action="{% url 'jobpostpage' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required value="{{comp.firstname}}">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required value="{{comp.lastname}}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="companyname">Company Name</label>
+                <input type="text" id="companyname" name="companyname" placeholder="Enter your company name">
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" placeholder="Enter your address"></textarea>
+            </div>
+           <div class="form-group">
+                <label for="description">Company Description</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter company description"></textarea>
+            </div>
+        </div>
+         <div class="form-group">
+                <label for="logo">Logo</label>
+                <input type="file" id="logo" name="image">
+            </div>
+        <div class="form-group">
+            <button type="submit">Update Profile</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Update Form</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            width: 48%;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-group input[type="text"]:hover,
+        .form-group input[type="date"]:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #007bff;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 40%;
+        }
+
+        .form-group button:hover {
+            background-color: #00b30cc1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Profile Update Form</h2>
+    <form action="{% url 'Upadatecprofile' pk=request.session.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required value="{{comp.firstname}}">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required value="{{comp.lastname}}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">company name</label>
+                <input type="text" id="email" name="company_name" placeholder="Enter company name" required " value="{{comp.company_name}}">
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state" value="{{comp.state}}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" value="{{comp.city}}">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your contact number" value="{{comp.contact}}">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" placeholder="Enter your address" value="{{comp.address}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="dob">email</label>
+                <input type="email" id="dob" name="email" placeholder="Enter your email" value="{{user.email}}">
+            </div>
+        </div>
+        <d
+            <div class="form-group">
+                <label for="profile_pic">Profile Picture</label>
+                <input type="file" id="profile_pic" name="image">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit">Update Profile</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

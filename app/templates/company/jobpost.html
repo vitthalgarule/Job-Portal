@@ -1,0 +1,169 @@
+{% extends "company/base2.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            width: 48%;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-group input[type="text"]:hover,
+        .form-group input[type="email"]:hover,
+        .form-group input[type="number"]:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #007bff;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 40%;
+        }
+
+        .form-group button:hover {
+            background-color: #00b30cc1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Job Application Form</h2>
+    <h2>{{msg}}</h2>
+    <form action="{% url 'jobposting' pk=request.session.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group">
+                <label for="jobname">Job Name</label>
+                <input type="text" id="jobname" name="jobname" placeholder="Enter the job name" required>
+            </div>
+            <div class="form-group">
+                <label for="companyname">Company Name</label>
+                <input type="text" id="companyname" name="companyname" placeholder="Enter the company name" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="jobdescription">Job Description</label>
+                <textarea id="jobdescription" name="jobdescription" rows="4" placeholder="Enter the job description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="jobdescription">Job Address</label>
+                <textarea id="address" name="address" rows="4" placeholder="Enter the Address" required></textarea>
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="text" id="salary" name="salary" placeholder="Enter the salary">
+            </div>
+            <div class="form-group">
+                <label for="qualification">Qualification</label>
+                <input type="text" id="qualification" name="qualification" placeholder="Enter required qualification">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter contact number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" placeholder="Enter company website">
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience (years)</label>
+                <input type="number" id="experience" name="experience" placeholder="Enter required experience in years" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="jobdescription">Job Responsibility</label>
+                <textarea id="address" name="responsibility" rows="4" placeholder="Enter the job Responsibility" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="logo">Company Logo</label>
+                <input type="file" id="logo" name="logo">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit Application</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+{% endblock %}
