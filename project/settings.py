@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$usdyplea#d7+n()@z*r4u-y14_@vkv-f3rgc5+nhq&fw1x_xq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '*']
+ALLOWED_HOSTS = [ 'your-project-name.onrender.com']
 
 
 # Application definition
@@ -128,7 +128,7 @@ USE_TZ = True
 import os
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
 # Default primary key field type
