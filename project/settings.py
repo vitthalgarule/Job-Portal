@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-$usdyplea#d7+n()@z*r4u-y14_@vkv-f3rgc5+nhq&fw1x_xq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*']
 
 
 # Application definition
@@ -48,7 +49,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
+
 
 ROOT_URLCONF = 'project.urls'
 
@@ -142,3 +146,6 @@ EMAIL_PORT = 587  # or 25, 465, depending on your SMTP server configuration
 EMAIL_HOST_USER = 'vitthalgarule113@gmail.com'
 EMAIL_HOST_PASSWORD = 'eqww phgk vihc iaqp'
 EMAIL_USE_TLS = True  # or False if your SMTP server doesn't use TLS
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
